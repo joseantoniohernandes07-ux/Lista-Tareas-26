@@ -1,2 +1,2 @@
 # Lista-Tareas-26
-aqui va todo lo relacionado a las tareas
+aqui van los codigos de la lista de tareas creada con HTML, css y Javascript
