@@ -23,9 +23,9 @@ function agregarTarea() {
     const elementoTarea = crearElementoTarea();
     contenedorTareas.append(elementoTarea);
     tareaEntrada.value = ''; 
-    mensaje.textContent = 'Tarea creada correctamente! 😊';
+    mensaje.textContent = 'Tarea creada correctamente! 😃';
   } else {
-    mensaje.textContent = 'No escribiste nada chamaco! 🧐';
+    mensaje.textContent = 'No escribiste nada chamaco! 😑';
   }
 }
 
@@ -71,6 +71,27 @@ function crearElementoTarea() {
   tareaTexto.innerText = tareaEntrada.value;
 
   // Escuchadores de los íconos
+
+  iconoCompletada.addEventListener(`click`, (e) => {
+    const tareaElemento = e.target.parentNode.parentNode;
+    const esCompletada = tareaElemento.classList.contains(`tarea-completada`);
+
+    tareaElemento.classList.toggle(`tarea-completada`);
+
+    if(esCompletada ) {
+      e.target.classList.remove(`bi-dash-circle`)
+      e.target.classList.add(`bi-check-circle`)
+    }else {
+      e.target.classList.remove(`bi-check-circle`)
+        e.target.classList.add(`bi-dash-circle`)
+    }
+    
+  } );
+
+  iconoEliminar.addEventListener(`click`, (e) => {
+    const tareaElemento = e.target.parentNode.parentNode;
+    tareaElemento.remove();
+  } );
 
   // Retornamos la estructura de la tarea
   return tareaContenedor;
